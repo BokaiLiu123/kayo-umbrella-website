@@ -1,0 +1,517 @@
+      :root {
+      --black: #0a0a0a;
+      --white: #f7f7f2;
+      --gray: #8f8f8a;
+      --soft-gray: #d8d8d2;
+      --line: rgba(255, 255, 255, 0.14);
+      --dark-line: rgba(0, 0, 0, 0.12);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--white);
+      color: var(--black);
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* 顶部导航 */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 76px;
+      z-index: 1000;
+      background: rgba(10, 10, 10, 0.88);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .navbar {
+      width: min(1200px, 92%);
+      height: 100%;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      font-size: 26px;
+      letter-spacing: 0.28em;
+      font-weight: 500;
+      color: var(--white);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    nav a {
+      color: var(--white);
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 11px 16px;
+      border: 1px solid transparent;
+      transition: 0.3s ease;
+    }
+
+    nav a:hover {
+      border-color: var(--line);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .nav-order {
+      border: 1px solid var(--white);
+      border-radius: 999px;
+    }
+
+    /* 首页 */
+    .hero {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 50% 40%, rgba(255,255,255,0.16), transparent 26%),
+        linear-gradient(135deg, #090909 0%, #171717 48%, #050505 100%);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      padding-top: 76px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 56px 56px;
+      opacity: 0.28;
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      width: min(1200px, 92%);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 44px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-copy {
+      padding-top: 30px;
+    }
+
+    .eyebrow {
+      font-size: 12px;
+      letter-spacing: 0.32em;
+      color: var(--gray);
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      font-size: clamp(48px, 8vw, 108px);
+      line-height: 0.92;
+      letter-spacing: -0.06em;
+      font-weight: 400;
+      margin-bottom: 28px;
+    }
+
+    .hero-copy p {
+      max-width: 480px;
+      color: #cfcfca;
+      font-size: 16px;
+      line-height: 1.9;
+      letter-spacing: 0.03em;
+      margin-bottom: 36px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 150px;
+      height: 48px;
+      border-radius: 999px;
+      border: 1px solid var(--white);
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: 0.3s ease;
+      cursor: pointer;
+      background: transparent;
+    }
+
+    .btn.primary {
+      background: var(--white);
+      color: var(--black);
+    }
+
+    .btn.primary:hover {
+      background: transparent;
+      color: var(--white);
+    }
+
+    .btn.secondary {
+      color: var(--white);
+    }
+
+    .btn.secondary:hover {
+      background: var(--white);
+      color: var(--black);
+    }
+
+    /* 3D 雨伞模型展示区 */
+    .product-stage {
+      position: relative;
+      width: 100%;
+      min-height: 620px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .model-showcase {
+      width: 100%;
+      height: 590px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 40px;
+      border: 1px solid var(--line);
+      background:
+        radial-gradient(circle at center, rgba(255,255,255,0.12), transparent 42%),
+        rgba(255,255,255,0.035);
+      box-shadow: 0 40px 120px rgba(0,0,0,0.42);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 28px;
+    }
+
+    .model-frame {
+      width: 88%;
+      height: 500px;
+      border: 0;
+      border-radius: 28px;
+      filter: grayscale(1) contrast(1.08);
+      background: #111;
+      position: relative;
+      z-index: 2;
+    }
+
+    .model-label {
+      position: absolute;
+      left: 34px;
+      bottom: 28px;
+      color: #cfcfca;
+      font-size: 12px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      z-index: 3;
+    }
+
+    .model-note {
+      position: absolute;
+      right: 34px;
+      top: 30px;
+      color: #9d9d98;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      z-index: 3;
+    }
+
+    /* 页面通用 */
+    section {
+      padding: 110px 0;
+    }
+
+    .section-inner {
+      width: min(1200px, 92%);
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-size: clamp(34px, 5vw, 70px);
+      font-weight: 400;
+      letter-spacing: -0.05em;
+      margin-bottom: 20px;
+    }
+
+    .section-desc {
+      max-width: 650px;
+      color: #666;
+      line-height: 1.9;
+      font-size: 15px;
+      letter-spacing: 0.03em;
+    }
+
+    /* 菜单 / 产品系列 */
+    .menu-section {
+      background: var(--white);
+      color: var(--black);
+    }
+
+    .menu-grid {
+      margin-top: 60px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .menu-card {
+      border: 1px solid var(--dark-line);
+      padding: 34px;
+      min-height: 260px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: 0.3s ease;
+      background: #fff;
+    }
+
+    .menu-card:hover {
+      background: var(--black);
+      color: var(--white);
+      transform: translateY(-8px);
+    }
+
+    .menu-card span {
+      font-size: 12px;
+      letter-spacing: 0.22em;
+      color: var(--gray);
+      text-transform: uppercase;
+    }
+
+    .menu-card h3 {
+      font-size: 28px;
+      font-weight: 400;
+      letter-spacing: -0.03em;
+    }
+
+    .menu-card p {
+      color: inherit;
+      opacity: 0.72;
+      line-height: 1.8;
+      font-size: 14px;
+    }
+
+    /* 订购 */
+    .order-section {
+      background: #0a0a0a;
+      color: var(--white);
+    }
+
+    .order-panel {
+      margin-top: 50px;
+      border: 1px solid var(--line);
+      padding: 44px;
+      display: grid;
+      grid-template-columns: 1fr 0.8fr;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .price {
+      font-size: clamp(42px, 6vw, 78px);
+      letter-spacing: -0.06em;
+      font-weight: 400;
+    }
+
+    .order-panel p {
+      color: #cfcfca;
+      line-height: 1.9;
+      margin-top: 18px;
+    }
+
+    .order-actions {
+      display: grid;
+      gap: 14px;
+    }
+
+    .order-input {
+      height: 52px;
+      background: transparent;
+      border: 1px solid var(--line);
+      color: var(--white);
+      padding: 0 18px;
+      outline: none;
+      font-size: 14px;
+    }
+
+    .order-input::placeholder {
+      color: #777;
+    }
+
+    .order-submit {
+      width: 100%;
+      border-radius: 0;
+      color: var(--black);
+    }
+
+    /* 联系与售后 */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+      margin-top: 50px;
+    }
+
+    .info-box {
+      border: 1px solid var(--dark-line);
+      padding: 36px;
+      min-height: 220px;
+      background: #fff;
+    }
+
+    .info-box h3 {
+      font-size: 28px;
+      font-weight: 400;
+      margin-bottom: 18px;
+    }
+
+    .info-box p {
+      color: #666;
+      line-height: 1.9;
+    }
+
+    footer {
+      background: #0a0a0a;
+      color: var(--white);
+      padding: 36px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .footer-inner {
+      width: min(1200px, 92%);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      color: #9d9d98;
+      font-size: 12px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    /* 手机端适配 */
+    @media (max-width: 900px) {
+      header {
+        height: auto;
+      }
+
+      .navbar {
+        padding: 18px 0;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      nav {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      nav a {
+        font-size: 11px;
+        padding: 9px 12px;
+      }
+
+      .hero {
+        padding-top: 132px;
+      }
+
+      .hero-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .product-stage {
+        min-height: 520px;
+      }
+
+      .model-showcase {
+        height: 500px;
+      }
+
+      .model-frame {
+        height: 420px;
+      }
+
+      .menu-grid,
+      .order-panel,
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .brand {
+        font-size: 22px;
+      }
+
+      .hero-copy p {
+        font-size: 14px;
+      }
+
+      .model-showcase {
+        height: 430px;
+        border-radius: 28px;
+      }
+
+      .model-frame {
+        width: 100%;
+        height: 350px;
+      }
+
+      .model-label {
+        left: 24px;
+        bottom: 22px;
+        font-size: 10px;
+      }
+
+      .model-note {
+        right: 24px;
+        top: 24px;
+        font-size: 10px;
+      }
+
+      .menu-card,
+      .order-panel,
+      .info-box {
+        padding: 26px;
+      }
+    }
+ 
